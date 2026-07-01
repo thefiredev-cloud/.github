@@ -16,13 +16,19 @@ Private AI on hardware you control — vault memory, MCP tools, approval gates.
 
 | | |
 |--|--|
-| **Starter** | [**open-mesh**](https://github.com/thefiredev-cloud/open-mesh) — MIT, 30 seconds |
+| **Starter** | [**open-mesh**](https://github.com/thefiredev-cloud/open-mesh) — MIT, `python3 openmesh.py` |
 | **Architecture** | [**openmesh-architecture**](https://github.com/thefiredev-cloud/openmesh-architecture) |
 | **EDR** | [**spark-edr**](https://github.com/thefiredev-cloud/spark-edr) |
 | **Index** | [**thefiredev-cloud**](https://github.com/thefiredev-cloud/thefiredev-cloud) |
 
-Everything else is **private** (OS, site source, templates, products, labs).
+Operator stack, site source, templates, and products are **private** (collaborator access).
 
 ---
 
-**[openmesh.live](https://openmesh.live)**
+## Security
+
+Vulnerabilities → **tanner@openmesh.live** (see **SECURITY.md** on public repos). No public issues for security.
+
+---
+
+**[openmesh.live](https://openmesh.live)** · DGX Spark · local-first
