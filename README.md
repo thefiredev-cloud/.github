@@ -19,16 +19,15 @@ Private operating systems on hardware you control — DGX Spark hub, vault memor
 | **Try in 30s** | [**open-mesh**](https://github.com/thefiredev-cloud/open-mesh) — `python3 openmesh.py` (MIT) |
 | **Product** | [**openmesh.live**](https://openmesh.live) |
 | **Architecture** | [**openmesh-architecture**](https://github.com/thefiredev-cloud/openmesh-architecture) |
-| **Full stack** | [**openmesh-os**](https://github.com/thefiredev-cloud/openmesh-os) (private) |
 | **Org index** | [**thefiredev-cloud**](https://github.com/thefiredev-cloud/thefiredev-cloud) |
 
-## Open Mesh family
+## Operator stack (private)
 
-`openmesh-client-install` · `openmesh-client-analyzer` · `dgx-spark-stack` · `agents-skills` · `spark-edr`
+Full OS monorepo, Spark install, and skills library — collaborator access only. No client workspaces on the public index.
 
-## Other products
+## Other work
 
-**Protocol Guide** (EMS) · **JudgeFinder** (legal analytics) · research labs · operator tooling
+Select private product repos (healthcare reference, legal analytics) and internal labs.
 
 ---
 
