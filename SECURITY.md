@@ -6,7 +6,7 @@ Thanks for taking security seriously as this project grows.
 
 **Do not** open a public GitHub issue for security bugs.
 
-Email **tanner@openmesh.live** with:
+Email **tanner@meshvault.ai** with:
 
 - What you found and where (repo, file, URL)
 - Steps to reproduce
@@ -32,4 +32,4 @@ Good-faith research that follows this policy and avoids privacy destruction, ser
 - Rotate anything accidentally committed immediately
 - Prefer private repos for client installs and production monorepos
 
-**Open Mesh** — [openmesh.live](https://openmesh.live)
+**MeshVault** — [meshvault.ai](https://meshvault.ai)
