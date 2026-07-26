@@ -21,9 +21,8 @@ Private AI on hardware you control — vault memory, MCP tools, approval gates.
 
 | Step | Link |
 |------|------|
-| **Starter** | [**open-mesh**](https://github.com/thefiredev-cloud/open-mesh) — MIT, `python3 openmesh.py` |
-| **Architecture** | [**openmesh-architecture**](https://github.com/thefiredev-cloud/openmesh-architecture) |
-| **EDR** | [**spark-edr**](https://github.com/thefiredev-cloud/spark-edr) |
+| **Skills** | [**meshvault-skills-starter**](https://github.com/thefiredev-cloud/meshvault-skills-starter) — MIT, plain Markdown agent skills |
+| **Architecture** | [**meshvault-agentic-architecture**](https://github.com/thefiredev-cloud/meshvault-agentic-architecture) — mixture-of-agents reference |
 | **Index** | [**thefiredev-cloud**](https://github.com/thefiredev-cloud/thefiredev-cloud) |
 
 
