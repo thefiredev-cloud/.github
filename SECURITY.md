@@ -1,35 +1,23 @@
-# Security
+# Security policy
 
-Thanks for taking security seriously as this project grows.
+This policy applies to every public repository under [thefiredev-cloud](https://github.com/thefiredev-cloud) that does not have its own `SECURITY.md`.
 
 ## Reporting a vulnerability
 
-**Do not** open a public GitHub issue for security bugs.
+Please do not open a public issue for a security problem. Email **tanner@meshvault.ai** with:
 
-Email **tanner@meshvault.ai** with:
+- what you found and where (repository, file, URL)
+- steps to reproduce
+- the impact you were able to show
 
-- What you found and where (repo, file, URL)
-- Steps to reproduce
-- Impact (read-only vs RCE vs secrets)
-
-We aim to acknowledge within **72 hours** and patch or document mitigations for confirmed issues.
+We aim to acknowledge reports within 72 hours, then fix the issue or document a mitigation.
 
 ## Scope
 
-| In scope | Out of scope |
-|----------|----------------|
-| This repository’s code and docs | Social engineering, physical access |
-| Obvious secret leaks in git history | Third-party services (report to vendor) |
-| Dependency CVEs with exploit path | Generic “scan my whole org” without PoC |
+In scope: code and docs in these repositories, secrets exposed in git history, and dependency vulnerabilities with a working exploit path.
+
+Out of scope: social engineering, physical access, third-party services (please report those to the vendor), and automated scan output without a proof of concept.
 
 ## Safe harbor
 
-Good-faith research that follows this policy and avoids privacy destruction, service disruption, or data exfiltration beyond minimal proof is appreciated.
-
-## Hardening (operators)
-
-- No real API keys, tokens, or `.env` files in git
-- Rotate anything accidentally committed immediately
-- Prefer private repos for client installs and production monorepos
-
-**MeshVault** — [meshvault.ai](https://meshvault.ai)
+We welcome good-faith research that follows this policy and keeps proof to the minimum needed: no service disruption, no data destruction, and no access to data beyond what the proof requires.
