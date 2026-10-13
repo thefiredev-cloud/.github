@@ -1,0 +1,23 @@
+# Shared gitleaks config for thefiredev-cloud repos. Extends gitleaks defaults.
+# Test fixtures must use obvious dummies such as sk_test_DUMMYNOTAREALKEY0000.
+[extend]
+useDefault = true
+
+[[rules]]
+id = "stripe-live-key-anywhere"
+description = "Stripe live key (sk_live_/rk_live_). Never commit, not even in tests or fixtures."
+regex = '''\b[sr]k_live_[A-Za-z0-9]{8,}'''
+keywords = ["sk_live_", "rk_live_"]
+tags = ["stripe", "live-key"]
+
+[[rules]]
+id = "stripe-live-key-in-tests"
+description = "Stripe live key prefix in a test or fixture file. Use sk_test_DUMMY... instead."
+regex = '''[sr]k_live_[A-Za-z0-9_]+'''
+path = '''(?i)(^|/)(test|tests|__tests__|spec|fixtures?|__fixtures__|mocks?)(/|$)|\.(test|spec)\.[cm]?[jt]sx?$'''
+keywords = ["sk_live_", "rk_live_"]
+tags = ["stripe", "live-key", "test-fixture"]
+
+[allowlist]
+description = "Obvious test dummies"
+regexes = ['''sk_test_DUMMYNOTAREALKEY0000''']
