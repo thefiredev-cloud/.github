@@ -1,6 +1,6 @@
 # .github
 
-Default community health files for repositories owned by [thefiredev-cloud](https://github.com/thefiredev-cloud) (MeshVault).
+Default community health files for repositories owned by [thefiredev-cloud](https://github.com/thefiredev-cloud), the home of Mesh and TheFireDev.
 
 GitHub uses a file from this repository when a repository does not have its own copy:
 
