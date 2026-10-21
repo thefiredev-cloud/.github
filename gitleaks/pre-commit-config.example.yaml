@@ -1,0 +1,9 @@
+# Copy to .pre-commit-config.yaml in a repo.
+repos:
+  - repo: local
+    hooks:
+      - id: gitleaks-protect
+        name: gitleaks protect --staged
+        entry: gitleaks protect --staged --redact
+        language: system
+        pass_filenames: false

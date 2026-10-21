@@ -1,0 +1,39 @@
+# Reusable secret scan. Call from any repo:
+#   jobs:
+#     gitleaks:
+#       uses: thefiredev-cloud/.github/.github/workflows/gitleaks-reusable.yml@main
+# A repo-local .gitleaks.toml wins; otherwise the shared config is used.
+name: gitleaks-reusable
+on:
+  workflow_call:
+    inputs:
+      gitleaks-version:
+        type: string
+        default: "8.21.2"
+permissions:
+  contents: read
+jobs:
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: thefiredev-cloud/.github
+          path: .shared-github
+      - name: Install gitleaks
+        run: |
+          curl -sSfL "https://github.com/gitleaks/gitleaks/releases/download/v${{ inputs.gitleaks-version }}/gitleaks_${{ inputs.gitleaks-version }}_linux_x64.tar.gz" | tar -xz gitleaks
+          sudo mv gitleaks /usr/local/bin/
+      - name: Scan
+        run: |
+          CFG=.gitleaks.toml
+          [ -f "$CFG" ] || CFG=.shared-github/gitleaks/gitleaks.toml
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            RANGE="${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"
+            gitleaks git --redact --config "$CFG" --log-opts="$RANGE" .
+          else
+            gitleaks git --redact --config "$CFG" .
+          fi
