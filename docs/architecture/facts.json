@@ -1,0 +1,64 @@
+{
+ "repo": ".github",
+ "files_tracked": 7,
+ "head": "a80387cdf07fa7765f7d3e71b72c828a4116dbbc",
+ "origin": "https://github.com/thefiredev-cloud/.github.git",
+ "default_branch": "main",
+ "languages": [
+  [
+   ".md",
+   3
+  ],
+  [
+   ".yml",
+   1
+  ],
+  [
+   ".toml",
+   1
+  ],
+  [
+   ".yaml",
+   1
+  ]
+ ],
+ "readme": "README.md",
+ "readme_first_paragraph": "Default community health files for repositories owned by [thefiredev-cloud](https://github.com/thefiredev-cloud) (MeshVault).",
+ "top_dirs": [
+  ".github",
+  "gitleaks"
+ ],
+ "manifests": [],
+ "libs": [],
+ "entry_points": [],
+ "services": [],
+ "deploy_targets": [],
+ "ci_workflows": [
+  {
+   "path": ".github/workflows/gitleaks-reusable.yml",
+   "name": "gitleaks-reusable",
+   "on": [
+    "workflow_call"
+   ],
+   "jobs": [
+    "gitleaks"
+   ],
+   "deploy_hints": []
+  }
+ ],
+ "cron_and_timers": [],
+ "files_scanned": 3,
+ "external_hosts": [
+  {
+   "host": "github.com",
+   "count": 1,
+   "first": ".github/workflows/gitleaks-reusable.yml:34"
+  }
+ ],
+ "env_var_names": [],
+ "ci_secret_names": [],
+ "data_store_signals": {},
+ "auth_signals": {},
+ "tests": [],
+ "docs_files": []
+}

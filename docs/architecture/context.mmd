@@ -1,0 +1,16 @@
+flowchart LR
+  dev(["Org repo maintainer"]):::actor
+  reporter(["Vulnerability reporter"]):::actor
+  SYSTEM["thefiredev-cloud .github<br/>the system in this repo"]:::app
+  caller{{"Calling repo's workflow"}}:::ext
+  gl{{"gitleaks release (GitHub)"}}:::ext
+  gh{{"GitHub community health"}}:::ext
+  dev -->|"adds `uses:` line"| caller
+  caller -->|"workflow_call"| SYSTEM
+  SYSTEM -->|"download v8.21.2"| gl
+  gh -->|"serves as default"| SYSTEM
+  reporter -.->|"reads how to report"| SYSTEM
+  dev -.->|"optional local hook"| SYSTEM
+  classDef actor fill:#fde68a,stroke:#b45309,color:#111827
+  classDef app fill:#bfdbfe,stroke:#1d4ed8,color:#0b1220
+  classDef ext fill:#e5e7eb,stroke:#4b5563,color:#0b1220,stroke-dasharray:4 3
