@@ -1,0 +1,11 @@
+sequenceDiagram
+  autonumber
+  participant pr as Calling repo PR
+  participant wf as gitleaks-reusable
+  participant gl as gitleaks binary
+  pr->>wf: workflow_call (gitleaks-version input)
+  wf->>wf: checkout caller (full history) and this repo
+  Note over wf: version must match x.y.z or the job fails
+  wf->>gl: download release, install
+  wf->>gl: scan base..head range with repo or shared config
+  gl-->>pr: pass, or fail with redacted findings

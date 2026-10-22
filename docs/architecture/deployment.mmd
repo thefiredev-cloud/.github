@@ -1,0 +1,11 @@
+flowchart LR
+  rel{{"gitleaks GitHub release"}}:::ext
+  subgraph host_gha["GitHub Actions runner (ubuntu-latest)"]
+    scan["gitleaks scan job<br/>when a caller triggers it"]:::job
+    cfg[("shared gitleaks.toml")]:::store
+  end
+  scan -->|"reads"| cfg
+  rel -->|"binary download"| scan
+  classDef ext fill:#e5e7eb,stroke:#4b5563,color:#0b1220,stroke-dasharray:4 3
+  classDef job fill:#fbcfe8,stroke:#be185d,color:#0b1220
+  classDef store fill:#bbf7d0,stroke:#15803d,color:#0b1220

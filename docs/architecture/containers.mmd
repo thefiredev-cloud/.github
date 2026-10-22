@@ -1,0 +1,24 @@
+flowchart TB
+  dev(["Org repo maintainer"]):::actor
+  reporter(["Vulnerability reporter"]):::actor
+  caller{{"Calling repo's workflow"}}:::ext
+  gl{{"gitleaks release (GitHub)"}}:::ext
+  gh{{"GitHub community health"}}:::ext
+  subgraph SYSTEM["thefiredev-cloud .github"]
+    wf["gitleaks-reusable.yml<br/>workflow_call"]:::job
+    cfg[("gitleaks.toml<br/>TOML rules")]:::store
+    hook["pre-commit example<br/>YAML"]:::doc
+    policy["SECURITY.md + CONTRIBUTING.md<br/>Markdown"]:::doc
+  end
+  dev -->|"adds `uses:` line"| caller
+  caller -->|"workflow_call"| wf
+  wf -->|"download v8.21.2"| gl
+  wf -->|"reads rules"| cfg
+  gh -->|"serves as default"| policy
+  reporter -.->|"reads how to report"| policy
+  dev -.->|"optional local hook"| hook
+  classDef actor fill:#fde68a,stroke:#b45309,color:#111827
+  classDef doc fill:#fed7aa,stroke:#c2410c,color:#0b1220
+  classDef ext fill:#e5e7eb,stroke:#4b5563,color:#0b1220,stroke-dasharray:4 3
+  classDef job fill:#fbcfe8,stroke:#be185d,color:#0b1220
+  classDef store fill:#bbf7d0,stroke:#15803d,color:#0b1220
