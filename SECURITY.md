@@ -4,7 +4,7 @@ This policy applies to every public repository under [thefiredev-cloud](https://
 
 ## Reporting a vulnerability
 
-Please do not open a public issue for a security problem. Email **tanner@meshvault.ai** with:
+Please do not open a public issue for a security problem. Email **tanner@kodros.ai** with:
 
 - what you found and where (repository, file, URL)
 - steps to reproduce
