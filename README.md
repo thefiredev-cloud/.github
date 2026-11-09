@@ -34,6 +34,21 @@ flowchart LR
 [Full architecture](docs/ARCHITECTURE.md) · Hi-res: [SVG](docs/architecture/whiteboard.svg) · [PNG 3x](docs/architecture/whiteboard@3x.png) · [dark PNG](docs/architecture/whiteboard.dark@3x.png) · [Explorable (Archify)](docs/architecture/dot-github.archify.html) · [Graphify report](docs/architecture/graphify/GRAPH_REPORT.md)
 <!-- arch:end -->
 
+## Secret scan
+
+Call the reusable workflow from a repo's workflow file:
+
+```yaml
+jobs:
+  gitleaks:
+    uses: thefiredev-cloud/.github/.github/workflows/gitleaks-reusable.yml@main
+```
+
+- Optional input `gitleaks-version`: plain `x.y.z`, default `8.21.2`.
+- A repo-local `.gitleaks.toml` replaces the shared `gitleaks/gitleaks.toml`.
+- Pull requests scan the base..head range. Other events scan full history.
+- Local hook: copy `gitleaks/pre-commit-config.example.yaml` to `.pre-commit-config.yaml`. It needs `gitleaks` on PATH.
+
 ## License
 
 All rights reserved. See [LICENSE](LICENSE). Licensing questions and contact: [tanner@kodros.ai](mailto:tanner@kodros.ai).
