@@ -47,7 +47,7 @@ jobs:
 - Optional input `gitleaks-version`: plain `x.y.z`, default `8.21.2`.
 - A repo-local `.gitleaks.toml` replaces the shared `gitleaks/gitleaks.toml`.
 - Pull requests scan the base..head range. Other events scan full history.
-- Local hook: copy `gitleaks/pre-commit-config.example.yaml` to `.pre-commit-config.yaml`. It needs `gitleaks` on PATH.
+- Local hook: install `pre-commit`, copy `gitleaks/pre-commit-config.example.yaml` to `.pre-commit-config.yaml`, then run `pre-commit install`. It needs `gitleaks` on PATH.
 
 ## License
 
