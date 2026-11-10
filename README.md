@@ -1,8 +1,8 @@
 # .github
 
-Default community health files for repositories owned by [thefiredev-cloud](https://github.com/thefiredev-cloud), the home of Kodros and TheFireDev.
+Shared security and contributing notes for the repositories owned by [thefiredev-cloud](https://github.com/thefiredev-cloud), the GitHub account of Tanner Osterkamp, founder of [Kodros](https://kodros.ai). The repositories hold small tools for AI agents, Kodros code, and forks of other projects. This is a personal account, not an organization.
 
-GitHub uses a file from this repository when a repository does not have its own copy:
+GitHub uses a file from this repository when a repository does not have its own copy. These notes are shared:
 
 - [SECURITY.md](SECURITY.md): how to report a vulnerability privately
 - [CONTRIBUTING.md](CONTRIBUTING.md): how to propose changes
@@ -12,14 +12,14 @@ The profile page itself lives in [thefiredev-cloud/thefiredev-cloud](https://git
 <!-- arch:begin -->
 ## Architecture
 
-Organization defaults: security and contributing policy, plus a reusable gitleaks secret-scan workflow.
+Shared defaults: security and contributing policy, plus a reusable gitleaks secret-scan workflow.
 
 ```mermaid
 flowchart LR
-  caller{{"Any org repo<br/>calls the workflow"}}:::ext
+  caller{{"Any repo<br/>calls the workflow"}}:::ext
   wf["Reusable workflow<br/>gitleaks scan"]:::job
   cfg[("Shared gitleaks.toml<br/>repo-local file wins")]:::store
-  policy["SECURITY + CONTRIBUTING<br/>org defaults"]:::doc
+  policy["SECURITY + CONTRIBUTING<br/>shared defaults"]:::doc
   reporter(["Reporter / contributor"]):::actor
   caller -->|"workflow_call"| wf
   wf -->|"reads"| cfg

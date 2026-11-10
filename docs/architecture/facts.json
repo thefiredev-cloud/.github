@@ -23,7 +23,7 @@
   ]
  ],
  "readme": "README.md",
- "readme_first_paragraph": "Default community health files for repositories owned by [thefiredev-cloud](https://github.com/thefiredev-cloud) (MeshVault).",
+ "readme_first_paragraph": "Shared security and contributing notes for the repositories owned by [thefiredev-cloud](https://github.com/thefiredev-cloud), the GitHub account of Tanner Osterkamp, founder of [Kodros](https://kodros.ai).",
  "top_dirs": [
   ".github",
   "gitleaks"
