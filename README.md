@@ -1,8 +1,8 @@
 # .github
 
-Default community health files for repositories owned by [thefiredev-cloud](https://github.com/thefiredev-cloud), the home of Kodros and TheFireDev.
+Default community health files for repositories owned by [thefiredev-cloud](https://github.com/thefiredev-cloud), the GitHub account of Tanner Osterkamp. It holds the code for [Kodros](https://kodros.ai) and [TheFireDev](https://thefiredev.com). This is a personal account, not an organization.
 
-GitHub uses a file from this repository when a repository does not have its own copy:
+GitHub uses a file from this repository when a repository does not have its own copy. Two files are shared:
 
 - [SECURITY.md](SECURITY.md): how to report a vulnerability privately
 - [CONTRIBUTING.md](CONTRIBUTING.md): how to propose changes
