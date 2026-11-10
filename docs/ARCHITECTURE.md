@@ -7,7 +7,7 @@
 
 ## 1. Purpose
 
-This is thefiredev-cloud's special `.github` repository. GitHub uses its `SECURITY.md` and `CONTRIBUTING.md` for any repo in the organization that has no copy of its own. It also publishes one reusable GitHub Actions workflow, `gitleaks-reusable.yml`, that any repo can call to scan for leaked secrets with a shared gitleaks config; a repo-local `.gitleaks.toml` wins when present. A pre-commit example sits beside it.
+This is thefiredev-cloud's special `.github` repository. GitHub uses its `SECURITY.md` and `CONTRIBUTING.md` for any repo owned by this account that has no copy of its own. It also publishes one reusable GitHub Actions workflow, `gitleaks-reusable.yml`, that any repo can call to scan for leaked secrets with a shared gitleaks config; a repo-local `.gitleaks.toml` wins when present. A pre-commit example sits beside it.
 
 ## 2. Whiteboard view
 
@@ -15,10 +15,10 @@ Five boxes: one reusable scan, one shared config, and policy files GitHub serves
 
 ```mermaid
 flowchart LR
-  caller{{"Any org repo<br/>calls the workflow"}}:::ext
+  caller{{"Any repo<br/>calls the workflow"}}:::ext
   wf["Reusable workflow<br/>gitleaks scan"]:::job
   cfg[("Shared gitleaks.toml<br/>repo-local file wins")]:::store
-  policy["SECURITY + CONTRIBUTING<br/>org defaults"]:::doc
+  policy["SECURITY + CONTRIBUTING<br/>shared defaults"]:::doc
   reporter(["Reporter / contributor"]):::actor
   caller -->|"workflow_call"| wf
   wf -->|"reads"| cfg
@@ -40,7 +40,7 @@ Who and what touches the system from outside.
 
 ```mermaid
 flowchart LR
-  dev(["Org repo maintainer"]):::actor
+  dev(["Repo maintainer"]):::actor
   reporter(["Vulnerability reporter"]):::actor
   SYSTEM["thefiredev-cloud .github<br/>the system in this repo"]:::app
   caller{{"Calling repo's workflow"}}:::ext
@@ -65,7 +65,7 @@ The parts that run or hold data inside the repo's system boundary.
 
 ```mermaid
 flowchart TB
-  dev(["Org repo maintainer"]):::actor
+  dev(["Repo maintainer"]):::actor
   reporter(["Vulnerability reporter"]):::actor
   caller{{"Calling repo's workflow"}}:::ext
   gl{{"gitleaks release (GitHub)"}}:::ext
@@ -97,7 +97,7 @@ Hi-res: [SVG](architecture/containers.svg) · [PNG 3x](architecture/containers@3
 | gitleaks-reusable.yml | job | workflow_call | Checks out the caller and this repo, installs a pinned-format gitleaks version, scans the PR range or full history. | [`.github/workflows/gitleaks-reusable.yml#L6-L49`](../.github/workflows/gitleaks-reusable.yml#L6-L49) |
 | gitleaks.toml | store | TOML rules | Shared scan config. A repo-local .gitleaks.toml overrides it. | [`gitleaks/gitleaks.toml`](../gitleaks/gitleaks.toml), [`.github/workflows/gitleaks-reusable.yml#L42-L43`](../.github/workflows/gitleaks-reusable.yml#L42-L43) |
 | pre-commit example | doc | YAML | Optional local pre-commit hook config. | [`gitleaks/pre-commit-config.example.yaml`](../gitleaks/pre-commit-config.example.yaml) |
-| SECURITY.md + CONTRIBUTING.md | doc | Markdown | Org-wide defaults GitHub shows for repos without their own. | [`README.md#L5-L8`](../README.md#L5-L8), [`SECURITY.md`](../SECURITY.md), [`CONTRIBUTING.md`](../CONTRIBUTING.md) |
+| SECURITY.md + CONTRIBUTING.md | doc | Markdown | Shared defaults GitHub shows for repos without their own. | [`README.md#L5-L8`](../README.md#L5-L8), [`SECURITY.md`](../SECURITY.md), [`CONTRIBUTING.md`](../CONTRIBUTING.md) |
 
 ## 5. Key runtime sequences
 
@@ -153,7 +153,7 @@ Hi-res: [SVG](architecture/deployment.svg) · [PNG 3x](architecture/deployment@3
 |---|---|---|---|
 | Secret found | Job fails; output is redacted | gitleaks step log in the caller's run | [`.github/workflows/gitleaks-reusable.yml#L44-L49`](../.github/workflows/gitleaks-reusable.yml#L44-L49) |
 | Bad gitleaks-version input | Job exits 1 before download | `bad gitleaks-version` message | [`.github/workflows/gitleaks-reusable.yml#L32-L33`](../.github/workflows/gitleaks-reusable.yml#L32-L33) |
-| Caller pins `@main` and main changes | Every caller picks up the change | Review changes to this repo as org-wide changes | [`.github/workflows/gitleaks-reusable.yml#L1-L5`](../.github/workflows/gitleaks-reusable.yml#L1-L5) |
+| Caller pins `@main` and main changes | Every caller picks up the change | Review changes to this repo as changes to every repo that calls it | [`.github/workflows/gitleaks-reusable.yml#L1-L5`](../.github/workflows/gitleaks-reusable.yml#L1-L5) |
 
 ## 9. State machine
 
