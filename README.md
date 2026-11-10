@@ -46,8 +46,10 @@ jobs:
 
 - Optional input `gitleaks-version`: plain `x.y.z`, default `8.21.2`.
 - A repo-local `.gitleaks.toml` replaces the shared `gitleaks/gitleaks.toml`.
+- Shared config (`gitleaks/gitleaks.toml`) adds two Stripe rules: live keys anywhere, and live-key prefixes in test or fixture paths. It allowlists one dummy test key, named in that file.
 - Pull requests scan the base..head range. Other events scan full history.
 - Local hook: install `pre-commit`, copy `gitleaks/pre-commit-config.example.yaml` to `.pre-commit-config.yaml`, then run `pre-commit install`. It needs `gitleaks` on PATH.
+  The hook does not read the shared config. Without a repo-local `.gitleaks.toml`, it flags the allowlisted dummy key that CI accepts. To match CI, copy `gitleaks/gitleaks.toml` to `.gitleaks.toml`.
 
 ## License
 
