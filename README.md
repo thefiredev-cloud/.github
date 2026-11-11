@@ -7,6 +7,8 @@ GitHub uses a file from this repository when a repository does not have its own 
 - [SECURITY.md](SECURITY.md): how to report a vulnerability privately
 - [CONTRIBUTING.md](CONTRIBUTING.md): how to propose changes
 
+This repository also holds the [portfolio table](profile/README.md): every product, what it is, its status with a date, its link and its repository. Product READMEs and websites must agree with it. GitHub does not show a `profile/` folder on a personal account, so the table is read here.
+
 The profile page itself lives in [thefiredev-cloud/thefiredev-cloud](https://github.com/thefiredev-cloud/thefiredev-cloud).
 
 <!-- arch:begin -->
