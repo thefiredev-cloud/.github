@@ -12,7 +12,7 @@ This is a personal GitHub account, not an organization. The Repository column is
 | PepGo | A catalog of research peptide reagents for laboratory use only, ages 21 and over. | Catalog online. Ordering is not open. | [pepgo.org](https://pepgo.org) | |
 | BreezyBuild | A planned workspace for construction timelines, budgets and site updates. | In development. Waitlist only. Nothing is for sale. | [breezybuild.com](https://breezybuild.com) | |
 | TheFireDev | Studio site: who Tanner is, what he builds, and AI setup services at fixed prices. | Live. | [thefiredev.com](https://thefiredev.com) | |
-| AmpHours | Offline iPhone calculator for battery runtime, recharge time and battery banks. | Live on the App Store since 2026-11-08, version 1.0.0. | [App Store](https://apps.apple.com/us/app/amphours-battery-runtime/id6819963364) | |
+| AmpHours | Offline iPhone calculator for battery runtime, recharge time and battery banks. | Live on the App Store since 2026-11-08, version 1.0.0 (read 2026-11-11). | [App Store](https://apps.apple.com/us/app/amphours-battery-runtime/id6819963364) | |
 | DrawYears | Offline iPhone calculator for how long savings last at a yearly withdrawal. | Public beta on TestFlight, not on the App Store. | [TestFlight](https://testflight.apple.com/join/87NWmm31) | |
 | Priorly | Offline iPhone forecast journal that turns your own probability into a suggested stake. It does not trade. | Public beta on TestFlight, not on the App Store. | [TestFlight](https://testflight.apple.com/join/7h1hqDfs) | |
 | PumpChart | Fire pump calculator for iPhone and Android that works with no signal. | Not released. No App Store or Google Play listing. | none yet | |
@@ -27,7 +27,7 @@ This is a personal GitHub account, not an organization. The Repository column is
 - PepGo: pepgo.org home, 2026-11-10; the code keeps ordering closed.
 - BreezyBuild: breezybuild.com home and /pricing, 2026-11-10.
 - TheFireDev: thefiredev.com, HTTP 200, 2026-11-10.
-- AmpHours: Apple iTunes lookup of id6819963364, 2026-11-10. Note: thefiredev.com/apps still says "Public beta on TestFlight" for AmpHours on 2026-11-10. The App Store lookup is newer and wins until that page is fixed.
+- AmpHours: Apple iTunes lookup of id6819963364, 2026-11-11 (one record, version 1.0.0, released 2026-11-08, Free). thefiredev.com/apps still said "Public beta on TestFlight" for AmpHours on 2026-11-11; fire-dev-site PR 156 changes it. The App Store lookup is newer and wins until that merges.
 - DrawYears and Priorly: TestFlight join pages (HTTP 200) and an Apple iTunes search with no listing, 2026-11-10.
 - PumpChart and ExtraSlip: thefiredev.com/apps ("Not released yet"), 2026-11-10.
 - Operator Desk: its hosted address answered 404 on 2026-11-10.
