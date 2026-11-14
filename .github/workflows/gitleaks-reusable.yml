@@ -10,6 +10,10 @@ on:
       gitleaks-version:
         type: string
         default: "8.21.2"
+      gitleaks-sha256:
+        description: sha256 of gitleaks_<version>_linux_x64.tar.gz. Needed only when gitleaks-version is not the pinned default.
+        type: string
+        default: ""
 permissions:
   contents: read
 jobs:
@@ -28,10 +32,26 @@ jobs:
       - name: Install gitleaks
         env:
           GITLEAKS_VERSION: ${{ inputs.gitleaks-version }}
+          GITLEAKS_SHA256: ${{ inputs.gitleaks-sha256 }}
         run: |
           # The version input is caller-controlled; accept only a plain x.y.z.
           [[ "$GITLEAKS_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "bad gitleaks-version: $GITLEAKS_VERSION" >&2; exit 1; }
-          curl -sSfL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" | tar -xz gitleaks
+          base="https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}"
+          asset="gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          curl -sSfL -o "$asset" "$base/$asset"
+          # Pinned digest for the default version; a caller-supplied digest otherwise;
+          # the release checksums file only as a last resort for unpinned overrides.
+          if [ "$GITLEAKS_VERSION" = "8.21.2" ] && [ -z "$GITLEAKS_SHA256" ]; then
+            GITLEAKS_SHA256=5bc41815076e6ed6ef8fbecc9d9b75bcae31f39029ceb55da08086315316e3ba
+          fi
+          if [ -n "$GITLEAKS_SHA256" ]; then
+            [[ "$GITLEAKS_SHA256" =~ ^[0-9a-f]{64}$ ]] || { echo "bad gitleaks-sha256" >&2; exit 1; }
+            echo "${GITLEAKS_SHA256}  ${asset}" | sha256sum -c -
+          else
+            echo "::warning::gitleaks ${GITLEAKS_VERSION} has no pinned sha256; verifying against the release checksums file only."
+            curl -sSfL "$base/gitleaks_${GITLEAKS_VERSION}_checksums.txt" | grep -E "  ${asset}\$" | sha256sum -c -
+          fi
+          tar -xzf "$asset" gitleaks && rm "$asset"
           sudo mv gitleaks /usr/local/bin/
       - name: Scan
         env:
