@@ -33,7 +33,7 @@ flowchart LR
   classDef store fill:#bbf7d0,stroke:#15803d,color:#0b1220
 ```
 
-[Full architecture](docs/ARCHITECTURE.md) · Hi-res: [SVG](docs/architecture/whiteboard.svg) · [PNG 3x](docs/architecture/whiteboard@3x.png) · [dark PNG](docs/architecture/whiteboard.dark@3x.png) · [Explorable (Archify)](docs/architecture/dot-github.archify.html) · [Graphify report](docs/architecture/graphify/GRAPH_REPORT.md)
+More detail: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 <!-- arch:end -->
 
 ## Secret scan
